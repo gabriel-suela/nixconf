@@ -1,6 +1,10 @@
 {
-  flake.nixosModules.audio = {
+  flake.nixosModules.audio = {pkgs, ...}: {
     security.rtkit.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      alsa-utils
+    ];
 
     services.pulseaudio.enable = false;
 
