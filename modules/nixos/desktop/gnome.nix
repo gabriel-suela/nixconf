@@ -9,6 +9,8 @@
       variant = "intl";
     };
 
+    i18n.inputMethod.enable = false;
+
     console.keyMap = "us-acentos";
   };
 }
