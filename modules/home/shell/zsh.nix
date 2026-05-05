@@ -1,5 +1,5 @@
 {
-  flake.homeModules.zsh = {
+  flake.homeModules.zsh = {pkgs, ...}: {
     home.sessionPath = [
       "$HOME/.local/state/nix/profiles/home-manager/home-path/bin"
     ];
@@ -28,11 +28,14 @@
           ip = "ip -c=auto";
           k = "kubectl";
           ls = "ls --color=auto -hv";
-          terraform = "tofu";
           v = "$EDITOR";
         };
 
         initContent = ''
+          fpath+=(${pkgs.pure-prompt}/share/zsh/site-functions)
+          autoload -U promptinit; promptinit
+          prompt pure
+
           export XCOMPOSEFILE="$HOME/.XCompose"
           export GTK_IM_MODULE=cedilla
           export QT_IM_MODULE=cedilla
@@ -71,18 +74,6 @@
           bindkey "^[[3~" delete-char
           bindkey -s "^F" "tmux-sessionizer\n"
 
-          gcof() {
-            git branch --all \
-              | sed -E 's|^\*? +||; s|remotes/origin/||' \
-              | sort -u \
-              | fzf --height 40% --border --prompt "Checkout branch: " \
-              | xargs git checkout
-          }
-
-          if [[ -n "$WSL_DISTRO_NAME" ]]; then
-            export BROWSER="/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
-          fi
-
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
           [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
@@ -95,7 +86,6 @@
             . "$HOME/google-cloud-sdk/completion.zsh.inc"
           fi
 
-          export PATH="$PATH:$HOME/.lmstudio/bin:$HOME/go/bin"
         '';
       };
     };
