@@ -1,0 +1,34 @@
+{
+  flake.homeModules.devPackages = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      alejandra
+      cargo
+      docker-compose
+      gcc
+      gh
+      git
+      go
+      gnumake
+      jq
+      k9s
+      kind
+      kubectl
+      kubernetes-helm
+      lazydocker
+      lazygit
+      neovim
+      nodejs
+      prettier
+      pyright
+      ripgrep
+      shfmt
+      statix
+      stylua
+      tmux
+      tree-sitter
+      unzip
+      wget
+      yq-go
+    ];
+  };
+}

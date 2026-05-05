@@ -1,4 +1,9 @@
 {
+  imports = [
+    ./home.nix
+    ./nixos
+  ];
+
   config = {
     systems = [
       "x86_64-linux"
