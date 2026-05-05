@@ -6,9 +6,11 @@
       self.nixosModules.audio
       self.nixosModules.boot
       self.nixosModules.docker
+      self.nixosModules.gaming
       self.nixosModules.gnome
       self.nixosModules.locale
       self.nixosModules.nixSettings
+      self.nixosModules.niri
       self.nixosModules.nvidia
       self.nixosModules.printing
       self.nixosModules.suelaUser

@@ -9,7 +9,6 @@
       enableSSHSupport = true;
     };
 
-    programs.steam.enable = true;
     programs.zsh.enable = true;
 
     services.openssh.enable = true;
