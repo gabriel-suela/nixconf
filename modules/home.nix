@@ -14,6 +14,7 @@
         self.homeModules.fuzzel
         self.homeModules.git
         self.homeModules.mako
+        self.homeModules.waybar
         self.homeModules.zsh
       ];
 
@@ -24,14 +25,14 @@
       home.pointerCursor = {
         gtk.enable = true;
         x11.enable = true;
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
-        size = 24;
+        package = pkgs.vanilla-dmz;
+        name = "DMZ-White";
+        size = 20;
       };
 
       home.sessionVariables = {
-        XCURSOR_SIZE = "24";
-        XCURSOR_THEME = "Bibata-Modern-Classic";
+        XCURSOR_SIZE = "20";
+        XCURSOR_THEME = "DMZ-White";
       };
     };
   };
